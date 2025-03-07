@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="script.js"></script>
+        <title>Tax caculate</title>
+
+        <style>
+            body {
+                background-color: white;
+                color: black;
+            }
+        </style>
+    </head>
+        <div id="header" style="border: 1px solid red;">
+            <button id="toggleBG-button" onclick="toggleBG()">Toggle Dark mode</button>
+            <script>
+                let bodyStyle = document.body.style
+                let isBlackBG = false
+                function toggleBG() {
+                    if (isBlackBG) {
+                        bodyStyle.backgroundColor = 'white'
+                        bodyStyle.color = 'black'
+                        document.getElementById('toggleBG-button').innerHTML = 'Toggle Dark mode'
+                    }
+                    else {
+                        bodyStyle.backgroundColor = 'black'
+                        bodyStyle.color = 'white'
+                        document.getElementById('toggleBG-button').innerHTML = 'Toggle Light mode'
+                    }
+                    isBlackBG = !isBlackBG
+                }
+            </script>
+        </div>
+
+        <div id="tax-cal">
+            <form id="income-form">
+                <div id="input-1">
+                    <label>รายได้ (บาท)</label><br>
+                    <input id="inputBox-1" type="text" value="0" onchange="changeText()">
+                    <label style="color: red" id="errorBox-1"></label>
+                </div>
+            </form>
+            <button onclick="addIncomeBox()">add</button>
+            <button onclick="removeIncomeBox()">delete</button>
+        </div>
+        <div id="tax-show">
+            <div>
+                <label>รายได้รวม (บาท)</label><br>
+                <input id="totalIncome" type="text" value="" readonly>
+            </div>
+            <div>
+                <label>อัตราภาษี (%)</label><br>
+                <input id="taxRate" type="text" value="" readonly>
+            </div>
+            <div>
+                <label>ภาษีที่ต้องจ่าย (บาท)</label><br>
+                <input id="taxTotal" type="text" value="" readonly>
+            </div>
+        </div>
+
+    </body>
+</html>
